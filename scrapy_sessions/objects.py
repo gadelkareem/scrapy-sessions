@@ -146,7 +146,8 @@ class Profiles(object):
         self.ref = {}
 
     def _clear(self, session_id):
-        del self.ref[session_id]
+        if session_id in self.ref:
+          del self.ref[session_id]
 
     def new_session(self, session_id):
         available = self.get_fresh()
